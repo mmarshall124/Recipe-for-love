@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Interactables/StaticInteractable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites and Tiles/Interactables/Bedroom/bedroom_game_set_up.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.97405, 14.4583 )
+
+[node name="Computer" instance=ExtResource( 1 )]
+itemName = "Dank Gamer Rig"
+interactionText = "This is Ginger's gaming setup!"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 8.1759, -23.3597 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 8.20747, -13.8084 )
+shape = SubResource( 1 )

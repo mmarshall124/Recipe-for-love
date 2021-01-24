@@ -1,0 +1,143 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Main Menu.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/Komiku_-_55_-_Sunset_on_the_beach.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sprites and Tiles/beginning_screen-color.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/daydream_3/Daydream.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sprites and Tiles/button.png" type="Texture" id=5]
+[ext_resource path="res://Sprites and Tiles/button_hover.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 84
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 41
+font_data = ExtResource( 4 )
+
+[node name="Main Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 960.827, 538.782 )
+texture = ExtResource( 3 )
+
+[node name="Title" type="Label" parent="CanvasLayer/Background"]
+margin_left = -631.433
+margin_top = -521.88
+margin_right = 862.567
+margin_bottom = -395.88
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.729412, 0.219608, 0.443137, 1 )
+text = "Recipe For Love <3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="TextureButton" parent="CanvasLayer/Background"]
+margin_left = -834.169
+margin_top = 280.859
+margin_right = -289.169
+margin_bottom = 440.859
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pink" type="Label" parent="CanvasLayer/Background/Start"]
+margin_left = -8.409
+margin_top = 11.3182
+margin_right = 536.591
+margin_bottom = 143.318
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.729412, 0.219608, 0.443137, 1 )
+text = "Hell Yeah!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="White" type="Label" parent="CanvasLayer/Background/Start"]
+visible = false
+margin_left = -8.409
+margin_top = 11.3182
+margin_right = 536.591
+margin_bottom = 143.318
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Hell Yeah!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="TextureButton" parent="CanvasLayer/Background"]
+margin_left = 302.713
+margin_top = 285.616
+margin_right = 847.713
+margin_bottom = 445.616
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pink" type="Label" parent="CanvasLayer/Background/Exit"]
+margin_left = -8.409
+margin_top = 11.3182
+margin_right = 536.591
+margin_bottom = 143.318
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.729412, 0.219608, 0.443137, 1 )
+text = "Nah Fam."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="White" type="Label" parent="CanvasLayer/Background/Exit"]
+visible = false
+margin_left = -8.409
+margin_top = 11.3182
+margin_right = 536.591
+margin_bottom = 143.318
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Nah Fam."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[connection signal="mouse_entered" from="CanvasLayer/Background/Start" to="." method="_on_Start_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Background/Start" to="." method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Background/Start" to="." method="_on_Start_mouse_exited"]
+[connection signal="mouse_exited" from="CanvasLayer/Background/Start" to="." method="_on_TextureButton_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Background/Start" to="." method="_on_Start_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Background/Start/Pink" to="." method="_on_Label_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Background/Start/White" to="." method="_on_Label_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Background/Exit" to="." method="_on_Exit_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Background/Exit" to="." method="_on_TextureButton2_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Background/Exit" to="." method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Background/Exit" to="." method="_on_Exit_mouse_exited"]
+[connection signal="mouse_exited" from="CanvasLayer/Background/Exit" to="." method="_on_TextureButton_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Background/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Background/Exit/Pink" to="." method="_on_Label_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Background/Exit/White" to="." method="_on_Label_mouse_entered"]
+[connection signal="finished" from="Background Theme" to="." method="_on_Background_Theme_finished"]

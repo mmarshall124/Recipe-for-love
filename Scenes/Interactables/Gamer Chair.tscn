@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Interactables/StaticInteractable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites and Tiles/Interactables/Bedroom/gamers-are-the-bane-of-my-existence.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6.47953, 5.77439 )
+
+[node name="Gamer Chair" instance=ExtResource( 1 )]
+itemName = "Gamer Chair"
+interactionText = "That's a hell master 666420! Ginger bought it after a well-deserved christmas bonus!"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 8.34276, -16.1849 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 8.34275, -6.34049 )
+shape = SubResource( 1 )

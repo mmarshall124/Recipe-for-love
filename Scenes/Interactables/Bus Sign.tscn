@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Interactables/StaticInteractable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites and Tiles/Outside/bus_sign.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 0.943073, 10 )
+
+[node name="Bus Sign" instance=ExtResource( 1 )]
+itemName = "Bus Sign"
+interactionText = "This is where Ginger and I go to work! Sadly it doesn't come on weekends. Maybe next game..."
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 8.48528, -24.0416 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 8.4731, -9.66231 )
+shape = SubResource( 1 )

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites and Tiles/Outside/house.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Interactables/StaticInteractable.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 46.0123, 31.2944 )
+
+[node name="YourHouse" instance=ExtResource( 2 )]
+itemName = "Your house"
+interactionText = "That's our house!"
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 16.5178, 24.5407 )
+shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+polygon = PoolVector2Array( -61.7784, 55.0908, -49.9793, 55.0908, -49.9793, 44.6026, -50.0587, 12.4261, -30.6886, 12.389, -30.5013, -6.90166, -61.7784, -6.90166 )

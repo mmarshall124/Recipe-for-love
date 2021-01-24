@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/ComplexDialogue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Intro.gd" type="Script" id=3]
+[ext_resource path="res://Sprites and Tiles/beginning-5-color.png" type="Texture" id=4]
+[ext_resource path="res://Sprites and Tiles/beginning-3-color.png" type="Texture" id=5]
+[ext_resource path="res://Sprites and Tiles/beginning-2-color.png" type="Texture" id=6]
+[ext_resource path="res://Sprites and Tiles/beginning-1-color.png" type="Texture" id=7]
+[ext_resource path="res://Sprites and Tiles/beginning-4-color.png" type="Texture" id=8]
+
+[node name="Intro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI" parent="." instance=ExtResource( 2 )]
+
+[node name="ComplexDialogue" parent="." instance=ExtResource( 1 )]
+path = "res://Dialogue/intro.json"
+
+[node name="B1" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 7 )
+centered = false
+
+[node name="B2" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 6 )
+centered = false
+
+[node name="B3" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 5 )
+centered = false
+
+[node name="B4" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 8 )
+centered = false
+
+[node name="B5" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
+centered = false

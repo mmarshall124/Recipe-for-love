@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stove.ogg-f4d7e277364944763b88bc6007c793b3.oggstr"
+
+[deps]
+
+source_file="res://Sounds/stove.ogg"
+dest_files=[ "res://.import/stove.ogg-f4d7e277364944763b88bc6007c793b3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

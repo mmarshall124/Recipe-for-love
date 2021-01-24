@@ -1,0 +1,163 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Fonts/04b_30/04B_30__.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/8-bit-operator/8bitOperatorPlus8-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/DialoguePopup.gd" type="Script" id=3]
+[ext_resource path="res://Sprites and Tiles/Aesprite Files/text_box.png" type="Texture" id=4]
+[ext_resource path="res://Sprites and Tiles/ginger-basic-color.png" type="Texture" id=5]
+[ext_resource path="res://Sprites and Tiles/melissa-basic-color.png" type="Texture" id=6]
+[ext_resource path="res://Sprites and Tiles/Jenkins.png" type="Texture" id=7]
+[ext_resource path="res://Sprites and Tiles/pigling.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 11
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "ItemFade"
+length = 3.0
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/Dialogue:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+[node name="UI" type="CanvasLayer"]
+pause_mode = 2
+follow_viewport_enable = true
+
+[node name="DialoguePopup" type="Popup" parent="."]
+visible = true
+anchor_top = 0.00220473
+anchor_bottom = 0.00220473
+margin_left = -3.4126
+margin_top = 9.6189
+margin_right = 1921.59
+margin_bottom = 1079.62
+popup_exclusive = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="Sprite" parent="DialoguePopup"]
+position = Vector2( 953.138, 863.411 )
+scale = Vector2( 7, 7 )
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="Character Name" type="Label" parent="DialoguePopup/ColorRect"]
+margin_left = -117.0
+margin_top = -23.0
+margin_right = -83.0
+margin_bottom = -10.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.839216, 0.337255, 0.337255, 1 )
+text = "Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue" type="Label" parent="DialoguePopup/ColorRect"]
+margin_left = -118.0
+margin_top = -9.0
+margin_right = 118.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+text = "Test! I'm a font!"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialoguePopup"]
+pause_mode = 2
+anims/ItemFade = SubResource( 3 )
+anims/showDialogue = SubResource( 4 )
+anims/transition = SubResource( 5 )
+
+[node name="Wife" type="Sprite" parent="DialoguePopup"]
+visible = false
+position = Vector2( 1600.29, 533.727 )
+texture = ExtResource( 5 )
+
+[node name="MC" type="Sprite" parent="DialoguePopup"]
+visible = false
+position = Vector2( 257.725, 572.114 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="Jenkins" type="Sprite" parent="DialoguePopup"]
+visible = false
+position = Vector2( 1655.51, 524.753 )
+texture = ExtResource( 7 )
+flip_h = true
+
+[node name="Pigling" type="Sprite" parent="DialoguePopup"]
+visible = false
+position = Vector2( 1326, -6 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Menu" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+margin_left = 587.338
+margin_top = 38.0977
+margin_right = 1284.34
+margin_bottom = 884.098
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Menu/ColorRect"]
+margin_left = 130.206
+margin_top = 49.3883
+margin_right = 535.206
+margin_bottom = 179.388
+text = "Save"
+
+[node name="Button2" type="Button" parent="Menu/ColorRect"]
+margin_left = 134.206
+margin_top = 261.388
+margin_right = 539.206
+margin_bottom = 391.388
+text = "Load"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="Menu/ColorRect"]
+margin_left = 142.206
+margin_top = 493.388
+margin_right = 547.206
+margin_bottom = 623.388
+text = "Quit"
+
+[connection signal="animation_finished" from="DialoguePopup/AnimationPlayer" to="DialoguePopup" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="Menu/ColorRect/Button" to="Menu" method="_on_Button_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/Button2" to="Menu" method="_on_Button2_pressed"]

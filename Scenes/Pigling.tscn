@@ -1,0 +1,178 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Sprites and Tiles/Character/pigThing.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Pigling.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/511484__mattleschuck__success-bell.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/ComplexDialogue.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 1.92599
+height = 2.35969
+
+[sub_resource type="Animation" id=6]
+resource_name = "IdleForward"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "WalkDown"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11, 12, 13, 14, 15, 16 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "WalkLeft"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 17, 18, 19, 20 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "WalkRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 21, 22, 23, 24 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "WalkUp"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "IdleForward"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "WalkLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "WalkUp"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "WalkDown"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=7]
+blend_point_0/node = SubResource( 11 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 12 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 13 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 14 )
+blend_point_3/pos = Vector2( 0, 1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/IdleForward/node = SubResource( 10 )
+states/IdleForward/position = Vector2( 502, 75 )
+states/Run/node = SubResource( 7 )
+states/Run/position = Vector2( 315, 76 )
+transitions = [ "Run", "IdleForward", SubResource( 15 ), "IdleForward", "Run", SubResource( 16 ) ]
+start_node = "Run"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
+[node name="Pigling" type="KinematicBody2D"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource( 2 )
+itemName = "Little Pig Man"
+interactionText = "Fuck"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 7.42833, -0.0501537 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 8.21084, -7.54867 )
+texture = ExtResource( 1 )
+hframes = 25
+frame = 17
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/IdleForward = SubResource( 6 )
+anims/WalkDown = SubResource( 2 )
+anims/WalkLeft = SubResource( 3 )
+anims/WalkRight = SubResource( 4 )
+anims/WalkUp = SubResource( 5 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 8 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 9 )
+parameters/Run/blend_position = Vector2( 0, 0 )
+
+[node name="WalkTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 1
+stream = ExtResource( 3 )
+
+[node name="ComplexDialogue" parent="." instance=ExtResource( 4 )]
+path = "res://Dialogue/pigling.json"
+
+[connection signal="timeout" from="WalkTimer" to="." method="_on_WalkTimer_timeout"]

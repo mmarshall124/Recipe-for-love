@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Interactables/StaticInteractable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/ComplexDialogue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites and Tiles/Aesprite Files/old_man_moving.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Jenkins.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/511484__mattleschuck__success-bell.ogg" type="AudioStream" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12.9689, 6.84871 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Rockin'"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[node name="Jenkins" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="0"]
+pause_mode = 2
+position = Vector2( 16.5541, -15.4946 )
+texture = ExtResource( 3 )
+hframes = 8
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 15.3622, -7.81354 )
+shape = SubResource( 1 )
+
+[node name="ComplexDialogue" parent="." index="2" instance=ExtResource( 2 )]
+path = "res://Dialogue/Jenkins.json"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+pause_mode = 2
+anims/Rockin' = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource( 5 )
+
+[node name="JenkinsStory" parent="." index="5" instance=ExtResource( 2 )]
+path = "res://Dialogue/story.json"

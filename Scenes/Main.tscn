@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/House.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/Siddhartha Corsus - (Thank God For This) Lightness of Being.wav" type="AudioStream" id=5]
+[ext_resource path="res://Scenes/ComplexDialogue.tscn" type="PackedScene" id=6]
+
+[node name="Main" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 4 )
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_left = 1.7818
+margin_right = 1921.78
+margin_bottom = 1080.0
+stretch = true
+stretch_shrink = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 384, 216 )
+handle_input_locally = false
+disable_3d = true
+usage = 0
+render_target_update_mode = 3
+
+[node name="House" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
+z_index = 2
+
+[node name="Player" parent="ViewportContainer/Viewport/House/YSort" index="9" instance=ExtResource( 2 )]
+position = Vector2( 150, 25 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 5 )
+volume_db = -16.0
+autoplay = true
+
+[node name="ComplexDialogue" parent="." instance=ExtResource( 6 )]
+path = "res://Dialogue/goals.json"
+
+[node name="ReturnText" parent="." instance=ExtResource( 6 )]
+path = "res://Dialogue/backHome.json"
+
+[editable path="ViewportContainer/Viewport/House"]

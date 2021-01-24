@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Siddhartha Corsus - (Thank God For This) Lightness of Being.mp3-fcd0760dfa24fc73de31222e69dc9357.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Siddhartha Corsus - (Thank God For This) Lightness of Being.mp3"
+dest_files=[ "res://.import/Siddhartha Corsus - (Thank God For This) Lightness of Being.mp3-fcd0760dfa24fc73de31222e69dc9357.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

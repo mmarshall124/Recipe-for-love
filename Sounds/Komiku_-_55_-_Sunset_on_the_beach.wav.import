@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Komiku_-_55_-_Sunset_on_the_beach.wav-cf3745f53e0a1eaabea6e585a8adea1b.sample"
+
+[deps]
+
+source_file="res://Sounds/Komiku_-_55_-_Sunset_on_the_beach.wav"
+dest_files=[ "res://.import/Komiku_-_55_-_Sunset_on_the_beach.wav-cf3745f53e0a1eaabea6e585a8adea1b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

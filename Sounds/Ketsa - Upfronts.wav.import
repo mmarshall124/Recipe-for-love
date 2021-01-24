@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ketsa - Upfronts.wav-a5c213ed8ca02b425556d4ed6e68ef5e.sample"
+
+[deps]
+
+source_file="res://Sounds/Ketsa - Upfronts.wav"
+dest_files=[ "res://.import/Ketsa - Upfronts.wav-a5c213ed8ca02b425556d4ed6e68ef5e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

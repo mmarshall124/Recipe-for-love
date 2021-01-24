@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Interactables/StaticInteractable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites and Tiles/Interactables/door.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Interactables/FrontFacing Door.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/door.mp3" type="AudioStream" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.09405, 0.502218 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Close"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 6, 5, 4, 3, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Open"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Open (copy)"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 1.10453, 12.8085 )
+
+[node name="FrontFacing Door" instance=ExtResource( 1 )]
+collision_layer = 13
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 8.24081, -11.8044 )
+texture = ExtResource( 2 )
+vframes = 8
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 8.26386, 0.0531323 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+anims/Close = SubResource( 2 )
+anims/Open = SubResource( 3 )
+"anims/Open (copy)" = SubResource( 4 )
+
+[node name="OpenCollider" type="CollisionShape2D" parent="." index="3"]
+position = Vector2( 0.35573, 4.3464 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="." index="4"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource( 4 )
+volume_db = -8.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

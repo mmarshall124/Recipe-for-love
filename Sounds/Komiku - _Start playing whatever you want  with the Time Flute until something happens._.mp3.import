@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Komiku - _Start playing whatever you want  with the Time Flute until something happens._.mp3-35b1ab95388299601cacd897c4e5ed84.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Komiku - _Start playing whatever you want  with the Time Flute until something happens._.mp3"
+dest_files=[ "res://.import/Komiku - _Start playing whatever you want  with the Time Flute until something happens._.mp3-35b1ab95388299601cacd897c4e5ed84.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

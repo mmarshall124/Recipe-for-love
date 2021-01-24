@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Interactables/StaticInteractable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites and Tiles/Outside/dog_thing.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.25223
+height = 9.31075
+
+[node name="Dog" instance=ExtResource( 1 )]
+itemName = "Dog?"
+interactionText = "That's old man Jenkin's support dog, creature thing. He's cute!"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 7.84218, -7.50848 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 7.75876, -0.750847 )
+rotation = 1.5708
+shape = SubResource( 1 )

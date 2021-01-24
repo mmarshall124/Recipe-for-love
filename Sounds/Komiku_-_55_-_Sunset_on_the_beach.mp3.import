@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Komiku_-_55_-_Sunset_on_the_beach.mp3-7f71821428ab633372c00b7aacdf185f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Komiku_-_55_-_Sunset_on_the_beach.mp3"
+dest_files=[ "res://.import/Komiku_-_55_-_Sunset_on_the_beach.mp3-7f71821428ab633372c00b7aacdf185f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

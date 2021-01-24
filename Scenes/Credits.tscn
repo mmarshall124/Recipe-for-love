@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Credits.gd" type="Script" id=1]
+[ext_resource path="res://Sprites and Tiles/Credits/credits_1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites and Tiles/Credits/credits_2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites and Tiles/Credits/credits_3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites and Tiles/Credits/credits_5.png" type="Texture" id=5]
+[ext_resource path="res://Sprites and Tiles/Credits/credits_6.png" type="Texture" id=6]
+[ext_resource path="res://Sprites and Tiles/Credits/credits_4.png" type="Texture" id=7]
+[ext_resource path="res://Sounds/Komiku - _Start playing whatever you want  with the Time Flute until something happens._.wav" type="AudioStream" id=8]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Sprite4" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Sprite5" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 6 )
+centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -20.0

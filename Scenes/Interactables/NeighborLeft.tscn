@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Interactables/StaticInteractable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites and Tiles/Outside/house_neighbor.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 46.7451, 19.074 )
+
+[node name="NeighborLeft" instance=ExtResource( 1 )]
+position = Vector2( 0.793701, 0.793701 )
+itemName = "Neighbor's House"
+interactionText = "That's old man Jenkin's House!"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 62.5612, -65.3163 )
+scale = Vector2( 0.993423, 0.996103 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 47.622, -44.8441 )
+shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+polygon = PoolVector2Array( -0.281006, -0.716599, -0.083271, -26.2173, 3.88523, -26.2173, 4.02663, -16.0742, 109.27, -16.7907, 109.8, -1.41109 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." index="3"]
+polygon = PoolVector2Array( 109.75, -1.066, 123.219, -1.20631, 121.957, -65.327, 92.492, -64.906, 92.9129, -60.2759, 110.311, -60.2759, 110.171, -27.3036, 119.431, -27.3036, 119.291, -16.2192, 109.75, -16.2192 )

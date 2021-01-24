@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Komiku - _Start playing whatever you want  with the Time Flute until something happens._.wav-d08a2cf68d349329ff176a4a615d3fbb.sample"
+
+[deps]
+
+source_file="res://Sounds/Komiku - _Start playing whatever you want  with the Time Flute until something happens._.wav"
+dest_files=[ "res://.import/Komiku - _Start playing whatever you want  with the Time Flute until something happens._.wav-d08a2cf68d349329ff176a4a615d3fbb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Interactables/StaticInteractable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites and Tiles/toilet.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.19999, 6.294 )
+
+[node name="Toilet" instance=ExtResource( 1 )]
+itemName = "Toilet"
+interactionText = "That's my toilet. Do you really need to know more about it?"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0.157668, -12.0085 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0.0992126, -6.50963 )
+shape = SubResource( 1 )

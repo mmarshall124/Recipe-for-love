@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Interactables/StaticInteractable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites and Tiles/Interactables/Living Room/bookshelf_forward.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 23.9247, 5.06639 )
+
+[node name="Forward Bookshelf" instance=ExtResource( 1 )]
+position = Vector2( -0.222725, 0.11544 )
+collision_layer = 13
+itemName = "Bookshelf"
+interactionText = "That's where i keep my copies of twilight!"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0.111355, -20.1566 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 3.8147e-06, -5.12249 )
+shape = SubResource( 1 )

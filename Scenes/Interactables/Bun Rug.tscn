@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Interactables/StaticInteractable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites and Tiles/Interactables/bun_rug.png" type="Texture" id=2]
+
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.25
+height = 16.5145
+
+[node name="Bun Rug" instance=ExtResource( 1 )]
+z_index = -1
+collision_layer = 4
+collision_mask = 0
+itemName = "Bun Rug"
+interactionText = "This may look like a completely innocent rug, but it's actually the skin of a horrific demon that uses kawaii TM imagery to lure in the most foul criminals that the nine hells have ever held. It also really fits my aesthetic though."
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -0.0625, -1.5 )
+shape = SubResource( 1 )
